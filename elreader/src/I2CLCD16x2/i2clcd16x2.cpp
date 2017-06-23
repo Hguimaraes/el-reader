@@ -6,10 +6,10 @@ namespace EasyLab{
   }
 
   I2CLCD16x2::~I2CLCD16x2(){
-    delete lcd;
+    delete[] lcd;
   }
 
-  void I2CLCD16x2::WriteTemperature(double in, double ext){
+  void I2CLCD16x2::WriteTemperature(float in, float ext){
     // @TO-DO
     String first_line = "Hello I2CLCD16x2";
     String second_line = "World Wrapper";

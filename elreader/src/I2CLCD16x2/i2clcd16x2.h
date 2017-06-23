@@ -33,11 +33,11 @@ class I2CLCD16x2 {
     // @Reference:  
     // [1] - http://playground.arduino.cc/Main/I2cScanner
     I2CLCD16x2(uint8_t lcd_address);
-    ~I2CLCD16x2();
+    virtual ~I2CLCD16x2();
   
     //  Public function to write the temperature (internal and external) values
     // in the LCD.
-    void WriteTemperature(double in, double ext);
+    void WriteTemperature(float in, float ext);
       
     // Getter and setter for lcd_address
     void setLCDAddress(uint8_t lcd_address);

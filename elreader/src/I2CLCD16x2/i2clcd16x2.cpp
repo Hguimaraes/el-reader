@@ -1,8 +1,10 @@
 #include "i2clcd16x2.h"
+#include <iomanip>
 
 namespace EasyLab{
   I2CLCD16x2::I2CLCD16x2(uint8_t lcd_address){
     setLCDAddress(lcd_address);
+    lcd->createChar(0, degreeChar);
   }
 
   I2CLCD16x2::~I2CLCD16x2(){
@@ -10,16 +12,15 @@ namespace EasyLab{
   }
 
   void I2CLCD16x2::WriteTemperature(float in, float ext){
-    // @TO-DO
-    String first_line = "Hello I2CLCD16x2";
-    String second_line = "World Wrapper";
-    
     // Clear the screen and print
-    lcd->clear();
     lcd->setCursor(0, 0);
-    lcd->print(first_line);
-    lcd->setCursor(0, 1);      
-    lcd->print(second_line);
+    lcd->print("Interna:" + String(in));
+    lcd->write((byte)0);
+    lcd->print("C");
+    lcd->setCursor(0, 1);
+    lcd->print("Externa:" + String(ext));
+    lcd->write((byte)0);
+    lcd->print("C");     
   }
 
   void I2CLCD16x2::setLCDAddress(uint8_t lcd_address){

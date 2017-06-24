@@ -37,9 +37,12 @@ class I2CLCD16x2 {
     I2CLCD16x2(uint8_t lcd_address);
     virtual ~I2CLCD16x2();
   
-    //  Public function to write the temperature (internal and external) values
+    //  Public method to write the temperature (internal and external) values
     // in the LCD.
     void WriteTemperature(float in, float ext);
+
+    // Public method to write the IP of the device on the display
+    void WriteIPAddress(String IP);
       
     // Getter and setter for lcd_address
     void setLCDAddress(uint8_t lcd_address);

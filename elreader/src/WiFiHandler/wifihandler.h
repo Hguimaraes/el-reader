@@ -25,6 +25,9 @@ class WiFiHandler {
     // URL to send the temperatures
     String endpointTemperature = "";
 
+    // Method to convert an IP of the WiFi library to string
+    String ipToString(IPAddress ip);
+
   public:
     //  Constructor and destructor methods for WiFiHandler
     // We need to receive
@@ -39,7 +42,7 @@ class WiFiHandler {
     bool Connect();
 
     // Get the local IP of the device on the network
-    IPAddress deviceIP();
+    String deviceIP();
 };
 }
 

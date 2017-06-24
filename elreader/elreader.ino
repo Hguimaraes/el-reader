@@ -30,7 +30,8 @@ void setup() {
   
   // Config the WiFi connection
   conn.Connect();
-  Serial.println(conn.deviceIP());
+  i2clcd.WriteIPAddress(conn.deviceIP());
+  delay(5000);
 }
 
 void loop() {

@@ -3,6 +3,7 @@
 namespace EasyLab{
   I2CLCD16x2::I2CLCD16x2(uint8_t lcd_address){
     setLCDAddress(lcd_address);
+    lcd->clear();
     lcd->createChar(0, degreeChar);
   }
 
@@ -20,6 +21,15 @@ namespace EasyLab{
     lcd->print("Externa:" + String(ext));
     lcd->write((byte)0);
     lcd->print("C");     
+  }
+
+  void I2CLCD16x2::WriteIPAddress(String IP){
+    // Clear the screen and print
+    lcd->clear();
+    lcd->setCursor(0, 0);
+    lcd->print("Connectado! IP: ");
+    lcd->setCursor(0, 1);
+    lcd->print(IP);
   }
 
   void I2CLCD16x2::setLCDAddress(uint8_t lcd_address){

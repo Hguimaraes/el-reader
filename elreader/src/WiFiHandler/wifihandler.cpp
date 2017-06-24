@@ -28,7 +28,15 @@ namespace EasyLab{
     return WiFi.status() == WL_CONNECTED;
   }
 
-  IPAddress WiFiHandler::deviceIP(){
-    return WiFi.localIP();
+  String WiFiHandler::deviceIP(){
+    return ipToString(WiFi.localIP());
+  }
+
+  // Thanks to: http://www.esp8266.com/viewtopic.php?p=38315
+  String WiFiHandler::ipToString(IPAddress ip){
+    String s="";
+    for (int i=0; i<4; i++)
+      s += i  ? "." + String(ip[i]) : String(ip[i]);
+    return s;
   }
 }

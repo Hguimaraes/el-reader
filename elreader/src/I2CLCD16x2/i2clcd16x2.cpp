@@ -1,5 +1,4 @@
 #include "i2clcd16x2.h"
-#include <iomanip>
 
 namespace EasyLab{
   I2CLCD16x2::I2CLCD16x2(uint8_t lcd_address){

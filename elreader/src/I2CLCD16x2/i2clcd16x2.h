@@ -1,5 +1,7 @@
 /**
- ** @file i2clcd16x2.h 
+ ** @file i2clcd16x2.h
+ ** @class I2CLCD16x2
+ ** @Description:
  **  This file contains a specific implementation to use the
  ** LCD 16x2 with I2C on NodeMCU. It's a simple wrapper of the
  ** LiquidCrystal_I2C library with functions useful for our application.

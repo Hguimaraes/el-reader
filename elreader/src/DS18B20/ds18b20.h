@@ -1,4 +1,7 @@
 /**
+ ** @file ds18b20.h
+ ** @class DS18B20
+ ** @Description:
  **  The objective of this class is to coordinate a waterproof temperature sensor of the model DS18B20.
  ** With this class is possible to create a really simple interface for DS18B20 and can be scalable to
  ** append more sensors with a correct data structure (Without consume to much memory).

@@ -12,10 +12,11 @@
 // Constants variables
 const char *ssid = "Hguimaraes";
 const char *pass = "@123aBc321@";
+String apikey = "5NXBCG5FS5FMFPIC";
 
 EasyLab::I2CLCD16x2 i2clcd(LCD_I2C_ADDRESS);
 EasyLab::DS18B20 intTemp, extTemp;
-EasyLab::WiFiHandler conn(ssid, pass);
+EasyLab::WiFiHandler conn(ssid, pass, apikey);
 
 void setup() {
   // Configure the temperature sensor
@@ -36,14 +37,20 @@ void setup() {
 
 void loop() {
   float int_temp = intTemp.readTemperature();
-  i2clcd.WriteTemperature(int_temp, 25.0);
+  float ext_temp = extTemp.readTemperature();
+  i2clcd.WriteTemperature(int_temp, ext_temp);
   
   // If is connected
   if(conn.isConnected()){
+    // Led on Green state and send the data
     connectedPhaseLed();
+    conn.send(int_temp, ext_temp);
   } else {
     disconnectedPhaseLed();
   }
+  
+  // Wait 0.5 second before send another request for temperature
+  delay(500);
 }
 
 //  Turn on the Led with an Yellow light to represent
